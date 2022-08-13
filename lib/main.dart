@@ -36,7 +36,41 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 50),
+              const Text("Image from asset folder"),
+              const SizedBox(height: 30),
+              Image.asset(
+                'assets/images/it_wala.jpg',
+                height: 100,
+                width: 100,
+              ),
+              const SizedBox(height: 50),
+              const Text("Image from network"),
+              const SizedBox(height: 30),
+              Image.network(
+                'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg',
+                height: 200,
+                width: 200,
+              ),
+              const SizedBox(height: 50),
+              const Text("Placeholder image"),
+              const SizedBox(height: 30),
+              FadeInImage.assetNetwork(
+                  height: 200,
+                  width: 200,
+                  placeholder: 'assets/images/it_wala.jpg',
+                  image:
+                      'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
+              const SizedBox(height: 50),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
